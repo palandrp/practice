@@ -1,0 +1,14 @@
+<div class="wdghtml" taskKey="com.javarush.task.task38.task3804">
+<h3>Фабрика исключений</h3>
+<p>Создай класс &#8212; фабрику исключений, который содержит один статический метод, возвращающий нужное исключение.<br />
+Этот метод должен принимать один параметр &#8212; энум.<br />
+<strong>Если передан энум:</strong><br />
+* <strong><span class="text-neon">ExceptionApplicationMessage</span></strong>, верни исключение <span class="text-corporate"><strong>Exception</strong></span><br />
+* <strong><span class="text-neon">ExceptionDBMessage</span></strong>, верни исключение <span class="text-corporate"><strong>RuntimeException</strong></span><br />
+* <strong><span class="text-neon">ExceptionUserMessage</span></strong>, верни <span class="text-neon"><strong>Error</strong></span> иначе верните <strong><span class="text-corporate">IllegalArgumentException</span></strong> без сообщения.</p>
+<p>В качестве сообщения (<strong>message</strong>) для каждого возвращаемого объекта используйте элементы энума, в которых все знаки подчеркивания замените на пробелы. Сообщение должно быть в нижнем регистре за исключением первого символа.<br />
+Например, сообщение для <span class="text-neon"><strong>ExceptionApplicationMessage.SOCKET_IS_CLOSED</strong> &#8212; &#171;Socket is closed&#187;</span>.</p>
+<p>Верните класс созданной фабрики в методе <mark>Solution.getFactoryClass</mark>.</p>
+<p>Энумы не меняй.</p>
+
+</div>

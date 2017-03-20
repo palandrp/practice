@@ -1,0 +1,6 @@
+<div class="wdghtml" taskKey="com.javarush.task.task38.task3805">
+<h3>Улучшения в Java 7 (multiple exceptions)</h3>
+<p>Перепиши реализации методов класса <span class="text-corporate"><strong>Solution</strong></span>.<br />
+Используй нововведения (<strong><span class="text-corporate">multiple exceptions</span></strong>), касающиеся обработки исключений, которые были добавлены в <strong>Java 7</strong>.</p>
+
+</div>

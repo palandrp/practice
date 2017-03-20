@@ -1,0 +1,38 @@
+<div class="wdghtml" taskKey="com.javarush.task.task39.task3913.big01">
+<h3>Парсер логов (1)</h3>
+<p>Сегодня мы напишем парсер логов.</p>
+<p><strong>Лог файл имеет следующий формат:</strong><br />
+<span class="text-neon">ip username date event status</span></p>
+<p><strong>Где:</strong><br />
+<mark class="user">ip</mark> &#8212; ip адрес с которого пользователь произвел событие.<br />
+<mark class="user">user</mark> &#8212; имя пользователя (одно или несколько слов разделенные пробелами).<br />
+<mark class="user">date</mark> &#8212; дата события в формате day.month.year hour:minute:second.<br />
+<mark class="user">event</mark> &#8212; одно из событий:<br />
+<span class="text-neon"><strong>LOGIN</strong></span> &#8212; пользователь залогинился,<br />
+<span class="text-neon"><strong>DOWNLOAD_PLUGIN</strong></span> &#8212; пользователь скачал плагин,<br />
+<span class="text-neon"><strong>WRITE_MESSAGE</strong></span> &#8212; пользователь отправил сообщение,<br />
+<span class="text-neon"><strong>SOLVE_TASK</strong></span> &#8212; пользователь попытался решить задачу,<br />
+<span class="text-neon"><strong>DONE_TASK</strong></span> &#8212; пользователь решил задачу.<br />
+Для событий <strong><span class="text-neon">SOLVE_TASK</span></strong> и <span class="text-neon"><strong>DONE_TASK</strong></span> существует дополнительный параметр,<br />
+который указывается через пробел, это номер задачи.<br />
+<mark class="user">status</mark> &#8212; статус:<br />
+<span class="text-neon"><strong>OK</strong></span> &#8212; событие выполнилось успешно,<br />
+<span class="text-neon"><strong>FAILED</strong></span> &#8212; событие не выполнилось,<br />
+<span class="text-neon"><strong>ERROR</strong></span> &#8212; произошла ошибка.</p>
+<p><strong>Пример строки из лог файла:</strong><br />
+&#171;<span class="text-neon">146.34.15.5 Eduard Petrovich Morozko 05.01.2021 20:22:55 DONE_TASK 48 FAILED</span>&#171;.<br />
+Записи внутри лог файла не обязательно упорядочены по дате, события могли произойти и быть записаны в лог в разной последовательности.</p>
+<p>Класс, который будет отвечать за парсинг логов называется <span class="text-corporate"><strong>LogParser</strong></span>.<br />
+1.1. Добавь в класс <span class="text-corporate">LogParser</span> конструктор с параметром <strong><span class="text-corporate">Path</span></strong> <mark class="user">logDir</mark>, где <mark class="user">logDir</mark> &#8212; директория с логами (<em>логов может быть несколько, все они должны иметь расширение </em><strong>log</strong>).<br />
+1.2. Реализуй интерфейс <strong><span class="text-yellow">IPQuery</span></strong> у класса <span class="text-corporate"><strong>LogParser</strong></span>:<br />
+1.2.1. Метод <mark>getNumberOfUniqueIPs(Date after, Date before)</mark> должен возвращать количество уникальных <strong>IP</strong> адресов за выбранный период. Здесь и далее, если в методе есть параметры <strong><span class="text-corporate">Date</span></strong> <mark class="user">after</mark> и <span class="text-corporate"><strong>Date</strong></span> <mark class="user">before</mark>, то нужно возвратить данные касающиеся только данного периода (включая даты <mark class="user">after</mark> и <mark class="user">before</mark>).<br />
+Если параметр after равен <span class="text-neon"><strong>null</strong></span>, то нужно обработать все записи, у которых дата меньше или равна <mark class="user">before</mark>.<br />
+Если параметр before равен <span class="text-neon"><strong>null</strong></span>, то нужно обработать все записи, у которых дата больше или равна <mark class="user">after</mark>.<br />
+Если и <mark class="user">after</mark>, и <mark class="user">before</mark> равны <strong><span class="text-neon">null</span></strong>, то нужно обработать абсолютно все записи (<em>без фильтрации по дате</em>).<br />
+1.2.2. Метод <mark>getUniqueIPs()</mark> должен возвращать множество, содержащее все не повторяющиеся <strong>IP</strong>. Тип в котором будем хранить <strong>IP</strong> будет <span class="text-corporate">String</span>.<br />
+1.2.3. Метод <mark>getIPsForUser()</mark> должен возвращать <strong>IP</strong>, с которых работал переданный пользователь.<br />
+1.2.4. Метод <mark>getIPsForEvent()</mark> должен возвращать <strong>IP</strong>, с которых было произведено переданное событие.<br />
+1.2.5. Метод <mark>getIPsForStatus()</mark> должен возвращать <strong>IP</strong>, события с которых закончилось переданным статусом.</p>
+<p>Реализацию метода <mark>main()</mark> можешь менять по своему усмотрению.</p>
+
+</div>

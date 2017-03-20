@@ -1,0 +1,7 @@
+<div class="wdghtml" taskKey="com.javarush.task.task38.task3810">
+<h3>Реализуй аннотации</h3>
+<p>Проект должен <strong>компилироваться</strong> и <strong>выводить</strong> аннотацию класса <span class="text-corporate"><strong>Solution</strong></span>.<br />
+Класс <span class="text-corporate"><strong>Solution</strong></span> и его аннотацию не менять.<br />
+Аннотация <span class="text-neon"><strong>Changelog</strong></span> должна быть видна во время выполнения.</p>
+
+</div>

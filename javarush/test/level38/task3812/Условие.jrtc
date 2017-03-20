@@ -1,0 +1,7 @@
+<div class="wdghtml" taskKey="com.javarush.task.task38.task3812">
+<h3>Обработка аннотаций</h3>
+<p>В классе <span class="text-corporate"><strong>Solution</strong></span> необходимо реализовать простейшую обработку аннотаций.</p>
+<p>В методы <mark>printFullyQualifiedNames</mark> и <mark>printValues</mark> приходит класс. Если этот класс отмечен аннотацией <strong><span class="text-neon">PrepareMyTest</span></strong>, необходимо вывести на экран <strong><span class="text-neon">fullyQualifiedNames</span></strong> и <strong>values</strong> в соответствующих методах и вернуть <span class="text-neon"><strong>true</strong></span>. Если же аннотация <span class="text-neon"><strong>PrepareMyTest</strong></span> отсутствует &#8212; вернуть <span class="text-neon"><strong>false</strong></span>.</p>
+<p>Для вывода на экран классов из массива <strong>value</strong> используй сокращенное имя (<mark class="user">getSimpleName</mark>).</p>
+
+</div>

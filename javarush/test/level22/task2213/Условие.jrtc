@@ -1,0 +1,8 @@
+<div class="wdghtml" taskKey="com.javarush.task.task22.task2213.big01">
+<h3>Тетрис(1)</h3>
+<p>Давай напишем игру <strong>Тетрис</strong>!</p>
+<p>Наш <strong>Тетрис</strong> будет состоять из двух вещей: поля из клеток и фигурки, которая падает.<br />
+Поэтому для начала создай <strong>три класса</strong>: <span class="text-corporate"><strong>Field</strong></span>(<em>поле с клетками</em>), <span class="text-corporate"><strong>Figure</strong></span>(<em>фигура</em>) и сам <span class="text-corporate"><strong>Tetris</strong></span>.</p>
+<p>Также нам понадобится метод <mark>main</mark> в классе <span class="text-corporate"><strong>Tetris</strong></span>.</p>
+
+</div>

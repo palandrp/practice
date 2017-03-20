@@ -1,0 +1,12 @@
+<div class="wdghtml" taskKey="com.javarush.task.task38.task3811">
+<h3>Тикеты</h3>
+<p>Реализуй в отдельном файле аннотацию <span class="text-neon"><strong>Ticket</strong></span>.</p>
+<p><strong>Требования к ней следующие:</strong><br />
+1) Должна быть доступна во время выполнения программы.<br />
+2) Применяться может только к новым типам данных.<br />
+3) Должна содержать <span class="text-neon">enum</span> <strong><span class="text-neon">Priority</span></strong> c элементами <strong>LOW</strong>, <strong>MEDIUM</strong>, <strong>HIGH</strong>.<br />
+4) Приоритет будет задавать свойство <mark class="user">priority</mark> &#8212; по умолчанию <mark>Priority.MEDIUM</mark>.<br />
+5) Свойство <strong>tags</strong> будет массивом строк и будет хранить теги связанные с тикетом.<br />
+6) Свойство <strong>createdBy</strong> будет строкой &#8212; по умолчанию <strong>Amigo</strong>.</p>
+
+</div>

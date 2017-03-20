@@ -1,0 +1,60 @@
+<div class="wdghtml" taskKey="com.javarush.task.task35.task3513.big17">
+<h3>2048 (17)</h3>
+<p>Поздравляю с реализацией своей собственной версии игры <strong>2048</strong>!</p>
+<p>Помимо основного функционала ты также реализовал отмену последнего хода и автоматический выбор наилучшего хода с помощью оценки эффективности одиночного хода.</p>
+<p>Из возможных улучшений можешь попробовать увеличить глубину анализа эффективности хода и проверить, сможет ли твой алгоритм набрать максимально возможный счет в <span class="text-user"><strong>839,732</strong></span> очков.</p>
+
+<hr>
+<h3>2048 (16)</h3>
+<p>Осталось совсем немного! У нас есть способ вычислить эффективность любого хода, а также мы можем их сравнивать между собой.</p>
+<p>Давай реализуем метод <mark>autoMove</mark> в классе <strong><span class="text-corporate">Model</span></strong>, который будет выбирать лучший из возможных ходов и выполнять его.</p>
+<p><strong>Сделаем так:</strong><br />
+1) Создадим локальную <mark class="user">PriorityQueue</mark> с параметром <mark>Collections.reverseOrder()</mark> (<em>для того, чтобы вверху очереди всегда был максимальный элемент</em>) и размером равным четырем.<br />
+2) Заполним <mark class="user">PriorityQueue</mark> четырьмя объектами типа <strong><span class="text-corporate">MoveEfficiency</span></strong> (<em>по одному на каждый вариант хода)</em>.<br />
+3) Возьмем верхний элемент и выполним ход связанный с ним.</p>
+<p>После реализации метода <mark>autoMove</mark> добавим его вызов в метод <mark>keyPressed</mark> класса <span class="text-corporate"><strong>Controller</strong></span> по нажатию на клавишу <strong>A</strong> (код &#8212; <span class="text-neon">KeyEvent.VK_A</span>).</p>
+<p><strong>P.S.</strong> <em>В качестве факультативного задания можешь почитать про указатели на методы и попробовать передать аргумент в метод getMoveEfficiency используя оператор &#171;<strong>::</strong>&#171;. Для метода </em><mark>left</mark><em> должно получиться </em><mark>getMoveEfficiency(this::left)</mark><em>. Альтернативно можешь использовать внутренний анонимный класс.</em></p>
+
+<hr>
+<h3>2048 (15)</h3>
+<p>Для того, чтобы эффективности различных ходов можно было сравнивать, необходимо реализовать в классе <strong><span class="text-corporate">MoveEfficiency</span></strong> поддержку интерфейса <span class="text-yellow"><strong>Comparable</strong></span>.</p>
+<p>В методе compareTo первым делом сравни количество пустых плиток (<strong>numberOfEmptyTiles</strong>), потом счет (<strong>score</strong>), если количество пустых плиток равное. Если и счет окажется равным, будем считать эффективность ходов равной и вернем ноль.</p>
+<p><strong>Далее перейдем в класс <span class="text-corporate">Model</span> и реализуем два метода:</strong><br />
+1)<mark> boolean hasBoardChanged</mark> &#8212; будет возвращать <span class="text-neon"><strong>true</strong></span>, в случае, если вес плиток в массиве <strong><span class="text-red">gameTiles</span></strong> отличается от веса плиток в верхнем массиве стека <span class="text-red"><strong>previousStates</strong></span>. Обрати внимание на то, что мы не должны удалять из стека верхний элемент, используй метод peek.<br />
+2) <mark>MoveEfficiency getMoveEfficiency(Move <strong>move</strong>)</mark> &#8212; принимает один параметр типа move, и возвращает объект типа <strong><span class="text-corporate">MoveEfficiency</span></strong> описывающий эффективность переданного хода. Несколько советов:<br />
+а) не забудь вызывать метод <mark>rollback</mark>, чтобы восстановить корректное игровое состояние;<br />
+б) в случае, если ход не меняет состояние игрового поля, количество пустых плиток и счет у объекта <strong><span class="text-corporate">MoveEfficiency</span></strong> сделай равными <strong>-1</strong> и <strong>0</strong> соответственно;<br />
+в) выполнить ход можно вызвав метод <mark>move</mark> на объекте полученном в качестве параметра.</p>
+
+<hr>
+<h3>2048 (14)</h3>
+<p>Случайный ход конечно неплох, но намного круче реализовать возможность умного хода. В дебри нейронных сетей мы заходить не будем, для начала сконцентрируемся на достаточно простой идее.</p>
+<p>Очевидно, хороший ход должен в итоге приближать нас к победе, а именно к получению плитки <strong>2048</strong>.</p>
+<p><strong>Предлагаю рассмотреть такой вариант сравнения эффективности хода:</strong><br />
+1. Первый ход является лучше второго, если после его совершения на поле находится больше пустых плиток, чем в результате второго хода.<br />
+2. Первый ход является лучше второго, если общий счет после его совершения больше, чем счет<br />
+полученный в результате второго хода.</p>
+<p>Для того, чтобы реализовать такое сравнение, мы можем совершить ход, оценить его эффективность и потом отменить совершенный ход, чтобы вернуть игру в начальное состояние. Применив эту последовательность действий ко всем четырем вариантам хода, сможем выбрать наиболее эффективный ход и выполнить его.</p>
+<p>Концептуально, нам понадобятся два класса, один будет описывать ход, а другой эффективность хода.</p>
+<p>Создай интерфейс <strong><span class="text-yellow">Move</span></strong> с одним <strong>void</strong> методом <mark>move</mark>. Отметь интерфейс аннотацией <em><strong>@FunctionalInterface</strong></em>, которая будет сигнализировать о том что в этом интерфейсе будет только один абстрактный метод.</p>
+<p>Создай класс <span class="text-corporate"><strong>MoveEfficiency</strong></span>, описывающий эффективность хода. В нем нам понадобятся приватные поля <mark class="user">numberOfEmptyTiles</mark> и score типа <span class="text-corporate">int</span>, а также приватное поле поле <mark class="user">move</mark> типа <span class="text-corporate"><strong>Move</strong></span>.<br />
+В классе <span class="text-corporate"><strong>MoveEfficiency</strong></span> необходим конструктор с тремя параметрами (<mark class="user">int numberOfEmptyTiles</mark>, <mark class="user">int score</mark>, <mark class="user">Move move</mark>) для инициализации полей класса и <strong>геттер</strong> для поля <span class="text-corporate">move</span>.</p>
+
+<hr>
+<h3>2048 (13)</h3>
+<p>Твой прогресс впечатляет! Для разнообразия, предлагаю дать игре возможность самостоятельно<br />
+выбирать следующий ход.</p>
+<p>Начнем с простого, реализуем метод <mark>randomMove</mark> в классе <span class="text-corporate"><strong>Model</strong></span>, который будет вызывать один из методов движения случайным образом. Можешь реализовать это вычислив целочисленное <span class="text-neon">n = ((int) (Math.random() * 100)) % 4.</span><br />
+Это число будет содержать целое псевдослучайное число в диапазоне <span class="text-user"><strong>[0..3]</strong></span>, по каждому из которых можешь вызывать один из методов <mark>left</mark>, <mark>right</mark>, <mark>up</mark>, <mark>down</mark>.</p>
+<p>Не забудь добавить в метод <mark>keyPressed</mark> класса <strong><span class="text-corporate">Controller</span></strong> вызов метода <mark>randomMove</mark> по нажатию на клавишу <strong>R </strong>(<em>код &#8212;</em> <span class="text-neon">KeyEvent.VK_R</span>).</p>
+<p><strong>P.S.</strong> <em>Проверку корректности работы метода </em><mark>randomMove</mark><em> оставляю полностью под твою ответственность, проверю только наличие вызова метода</em> <mark>Math.random()</mark>.</p>
+
+<hr>
+<h3>2048 (12)</h3>
+<p>Ну что, попробуем наш алгоритм в действии? Осталось добавить сохранение игрового состояния в начало каждого метода движения, а также еще один кейс для обработки клавиши, которой будем выполнять отмену последнего хода.</p>
+<p>При сохранении текущего состояния в стек, обрати внимание на то, чтобы всегда сохранялось актуальное состояние и только однажды. Если ты послушал мой совет и реализовал методы <mark>right</mark>, <mark>up</mark>, <mark>down</mark> с помощью поворотов и вызова метода left, можешь использовать следующий подход:<br />
+1. В самом начале методов <mark>right</mark>, <mark>up</mark>, <mark>down</mark> вызываем метод <mark>saveState</mark> с <span class="text-corporate"><strong>gameTiles</strong></span> в качестве параметра.<br />
+2. В методе <mark>left</mark> организуем проверку того, вызывался ли уже метод <mark>saveState</mark>. За это у нас отвечает флаг <strong><span class="text-neon">isSaveNeeded</span></strong>, соответственно, если он равен <span class="text-neon"><strong>true</strong></span>, выполняем сохранение. После выполнения сдвига влево устанавливаем флаг <span class="text-neon"><strong>isSaveNeeded</strong></span> равным <span class="text-neon"><strong>true</strong></span>.</p>
+<p>Также добавим в метод <mark>keyPressed</mark> класса <span class="text-corporate"><strong>Controller</strong></span> вызов метода <mark>rollback</mark> по нажатию на клавишу <strong>Z</strong> (<em>код &#8212;</em> <span class="text-neon">KeyEvent.VK_Z</span>).</p>
+
+</div>

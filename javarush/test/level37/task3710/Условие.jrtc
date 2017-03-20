@@ -1,0 +1,10 @@
+<div class="wdghtml" taskKey="com.javarush.task.task37.task3710">
+<h3>Decorator</h3>
+<p>Создай класс <span class="text-corporate"><strong>RedShapeDecorator</strong></span> в пакете <span class="text-red"><strong>Decorators</strong></span>. Он должен расширять функциональность объектов типа <span class="text-corporate"><strong>Shape</strong></span> не меняя их структуру.</p>
+<p>Я уже создал абстрактный класс <span class="text-corporate"><strong>ShapeDecorator</strong></span>, поэтому:<br />
+1) Класс <span class="text-corporate"><strong>RedShapeDecorator</strong></span> сделай наследником класса <span class="text-corporate"><strong>ShapeDecorator</strong></span>.<br />
+2) Реализуй приватный метод <mark>setBorderColor</mark> с одним параметром типа <span class="text-corporate"><strong>ShapeDecorator</strong></span>.<br />
+Он должен выводить на экран фразу &#171;<strong><em>Setting border color for </em><span class="text-user">XXX</span><em> to red.</em></strong>&#171;, где <mark class="user">XXX</mark> &#8212; имя конкретного декорируемого класса (<em>можешь воспользоваться методами</em> <mark>getClass().getSimpleName()</mark> <em>вызванными на объекте полученном в качестве параметра</em>).<br />
+3) Переопредели метод <mark>draw</mark>, в нем сначала измени цвет отображаемого объекта с помощью метода <mark>setBorderColor</mark>, а потом нарисуй его.</p>
+
+</div>

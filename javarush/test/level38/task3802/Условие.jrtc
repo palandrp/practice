@@ -1,0 +1,7 @@
+<div class="wdghtml" taskKey="com.javarush.task.task38.task3802">
+<h3>Проверяемые исключения (checked exception)</h3>
+<p>Напиши реализацию метода <mark>veryComplexMethod()</mark>.<br />
+Он должен всегда кидать какое-нибудь проверяемое исключение.<br />
+Кинуть исключение (<span class="text-neon"><strong>throw</strong></span>) явно нельзя.</p>
+
+</div>

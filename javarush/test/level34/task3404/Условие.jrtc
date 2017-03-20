@@ -1,0 +1,16 @@
+<div class="wdghtml" taskKey="com.javarush.task.task34.task3404">
+<h3>Рекурсия для мат. выражения</h3>
+<p>На вход подается строка &#8212; математическое выражение.<br />
+Выражение включает целые и дробные числа, скобки (), пробелы, знак отрицания -, возведение в степень <strong>^</strong>, <strong>sin(x)</strong>, <strong>cos(x)</strong>, <strong>tan(x)</strong><br />
+Для <strong>sin(x)</strong>, <strong>cos(x)</strong>, <strong>tan(x)</strong> выражение внутри скобок считать градусами, например, <span class="text-neon">cos(3 + 19*3)=0.5</span><br />
+Степень задается так: <span class="text-neon">a^(1+3)</span> и так <span class="text-neon">a^4</span>, что эквивалентно <span class="text-neon">a*a*a*a</span>.<br />
+С помощью рекурсии вычислить выражение и количество математических операций. Вывести через пробел результат в консоль.<br />
+Результат выводить с точностью до двух знаков, для <span class="text-user"><strong>0.33333</strong></span> вывести <span class="text-user"><strong>0.33</strong></span>, использовать стандартный принцип округления.<br />
+Не создавай в классе <span class="text-corporate"><strong>Solution</strong></span> дополнительные поля.<br />
+Не пиши косвенную рекурсию.</p>
+<p><strong>Пример, состоящий из операций sin * &#8212; + * +:</strong><br />
+<code><strong>sin(2*(-5+1.5*4)+28)</strong></code></p>
+<p><strong>Результат:</strong><br />
+<code>0.5 6</code></p>
+
+</div>

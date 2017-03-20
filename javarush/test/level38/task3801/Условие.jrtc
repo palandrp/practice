@@ -1,0 +1,7 @@
+<div class="wdghtml" taskKey="com.javarush.task.task38.task3801">
+<h3>Исправь ошибки в коде</h3>
+<p>Исключения <span class="text-yellow">NameIsEmptyException</span> и <span class="text-yellow">NameIsNullException</span> должны быть <strong><span class="text-corporate">checked</span></strong>.<br />
+Все типы исключений должны быть обработаны.<br />
+Реализацию методов <mark>main()</mark> и <mark>getNumberOfCharacters()</mark> не менять.</p>
+
+</div>

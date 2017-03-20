@@ -1,0 +1,7 @@
+<div class="wdghtml" taskKey="com.javarush.task.task38.task3803">
+<h3>Runtime исключения (unchecked exception)</h3>
+<p>Напиши реализацию метода <mark>methodThrowsClassCastException()</mark>. Он должен всегда кидать <span class="text-neon">Runtime</span> исключение <span class="text-yellow">ClassCastException</span>.</p>
+<p>Напиши реализацию метода <mark>methodThrowsNullPointerException()</mark>. Он должен всегда кидать <span class="text-neon">Runtime</span> исключение <span class="text-yellow">NullPointerException</span>.</p>
+<p>Кинуть исключение (<strong><span class="text-neon">throw</span></strong>) явно нельзя.</p>
+
+</div>
